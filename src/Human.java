@@ -2,8 +2,9 @@ class Human {
     private String name;
     private int age;
     private Animal pet;
+    private Car car;
 
-    public Human(String name, int age, Animal pet) {
+    public Human(String name, int age) {
         this.name = name;
         this.age = age;
         this.pet = pet;
@@ -19,5 +20,13 @@ class Human {
 
     public Animal getPet() {
         return this.pet;
+    }
+
+    public Car getCar() {
+        return this.car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
     }
 }

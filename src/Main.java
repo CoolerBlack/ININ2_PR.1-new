@@ -4,12 +4,6 @@ public class Main {
         Animal cat = new Animal("Cat", false);
         System.out.println(cat.getWeight());
 
-        Animal dog = new Animal("Dog", false);
-        System.out.println(dog.getWeight());
-
-        Animal unknown = new Animal("Unknown", false);
-        System.out.println(unknown.getWeight());
-
 
         cat.feed();
         System.out.println(cat.getWeight());
@@ -33,6 +27,10 @@ public class Main {
         cat.takeForAWalk();
         System.out.println(cat.getWeight());
 
+        Car car = new Car("Toyota", "Corolla", 2020, 7.5);
+        Human john = new Human("John", 30);
+        john.setCar(car);
+        System.out.println(john.getCar().getMake());
 
     }
 
