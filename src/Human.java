@@ -1,3 +1,5 @@
+import devices.Car;
+
 class Human {
     private String name;
     private int age;
@@ -56,5 +58,9 @@ class Human {
         System.out.println("Każdy wie ile zarabiasz nikogo nie oszukasz -1 byq");
         this.salary = salary;
     }
+
+        public String toString(){
+        return name+" "+age+" "+salary;
+        }
 
 }

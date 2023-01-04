@@ -1,3 +1,6 @@
+import devices.Car;
+import devices.Phone;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -45,6 +48,26 @@ public class Main {
         jeremiasz.getSalary();
 
         jeremiasz.setCar(car);
+
+
+        Car car2 = new Car("Toyota", "Yaris", 2000, 6.0, 0.5);
+        Car car3 = new Car("Toyota", "Yaris", 2000, 6.0, 0.5);
+        if (car2.equals(car3)) {
+            System.out.println("Samochody są sobie równe.");
+        } else {
+            System.out.println("Samochody są sobie nierówne.");
+        }
+        Human h1=new Human("Olaf", 12, 2500.0);
+        System.out.println(h1);
+
+        Animal a1=new Animal("Dog", false);
+        System.out.println(a1);
+
+        Car c1=new Car("Toyota", "Yaris", 2000, 6.0, 0.5);
+        System.out.println(c1);
+
+        Phone p1=new Phone("g11", 2022);
+        System.out.println(p1);
     }
 
 }

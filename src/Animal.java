@@ -51,4 +51,7 @@ class Animal {
             this.weight = 0.0;
         }
     }
+    public String toString(){
+        return species+" "+weight+" "+isAlive;
+    }
 }

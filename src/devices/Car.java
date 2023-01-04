@@ -1,4 +1,6 @@
-class Car {
+package devices;
+
+public class Car {
     private String make;
     private String model;
     private int year;
@@ -32,6 +34,18 @@ class Car {
     public double getValue(){
         return this.value;
     }
-
-
+    @Override
+    public boolean equals(Object o){
+        if (o == this){
+            return true;
+        }
+        if (!(o instanceof Car)){
+            return false;
+        }
+        Car car = (Car) o;
+        return this.make.equals(car.make) && this.model.equals(car.model);
+    }
+    public String toString(){
+        return model+" "+year;
+    }
 }

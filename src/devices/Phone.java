@@ -1,4 +1,6 @@
-class Phone {
+package devices;
+
+public class Phone {
     private String model;
     private int year;
 
@@ -13,5 +15,8 @@ class Phone {
 
     public int getYear() {
         return this.year;
+    }
+    public String toString(){
+        return model+" "+year;
     }
 }
