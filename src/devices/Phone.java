@@ -1,22 +1,29 @@
 package devices;
 
-public class Phone {
-    private String model;
-    private int year;
+public class Phone extends Device {
 
-    public Phone(String model, int year) {
-        this.model = model;
-        this.year = year;
+
+
+    public Phone(String producer, String model, int yearOfProduction) {
+        super(producer, model, yearOfProduction);
+
+    }
+    public String getProducer(){
+        return this.producer;
     }
 
-    public String getModel() {
+    public String getModel(){
         return this.model;
     }
 
-    public int getYear() {
-        return this.year;
+    public double getYearOfProduction(){
+        return this.yearOfProduction;
     }
-    public String toString(){
-        return model+" "+year;
+
+    @Override
+    public void turnOn() {
+        System.out.println("turning on phone...");
     }
+
+
 }

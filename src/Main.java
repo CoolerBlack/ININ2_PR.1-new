@@ -1,4 +1,5 @@
 import devices.Car;
+import devices.Device;
 import devices.Phone;
 
 public class Main {
@@ -33,7 +34,7 @@ public class Main {
         Car car = new Car("Toyota", "Corolla", 2020, 7.5, 2000);
         Human john = new Human("John", 10,1000.0);
         john.setCar(car);
-        System.out.println(john.getCar().getMake());
+        System.out.println(john.getCar().getProducer());
 
         Human janek = new Human("Janek", 20, 2000.0);
         System.out.println("Wypka Janka: " + janek.getSalary());
@@ -66,8 +67,11 @@ public class Main {
         Car c1=new Car("Toyota", "Yaris", 2000, 6.0, 0.5);
         System.out.println(c1);
 
-        Phone p1=new Phone("g11", 2022);
+        Phone p1=new Phone("szajsung", "h11", 2022);
         System.out.println(p1);
+
+        p1.turnOn();
+        c1.turnOn();
     }
 
 }

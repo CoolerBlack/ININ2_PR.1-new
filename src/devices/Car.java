@@ -1,31 +1,33 @@
 package devices;
 
-public class Car {
-    private String make;
-    private String model;
-    private int year;
-    private double fuelConsumption;
+public class Car extends Device{
 
-    private double value;
+    public double fuelConsumption;
+    public double value;
 
-    public Car(String make, String model, int year, double fuelConsumption, double value) {
-        this.make = make;
-        this.model = model;
-        this.year = year;
+    public Car(String producer, String model, int yearOfProduction, double fuelConsumption, double value) {
+        super(producer, model, yearOfProduction);
         this.fuelConsumption = fuelConsumption;
         this.value = value;
+
     }
 
-    public String getMake() {
-        return this.make;
+    public String getProducer() {
+        return this.producer;
     }
 
     public String getModel() {
         return this.model;
     }
 
+    @Override
+    public void turnOn() {
+        System.out.println("turning on car...");
+
+    }
+
     public int getYear() {
-        return this.year;
+        return (int) this.yearOfProduction;
     }
 
     public double getFuelConsumption() {
@@ -39,13 +41,10 @@ public class Car {
         if (o == this){
             return true;
         }
-        if (!(o instanceof Car)){
+        if (!(o instanceof Car car)){
             return false;
         }
-        Car car = (Car) o;
-        return this.make.equals(car.make) && this.model.equals(car.model);
+        return this.producer.equals(car.producer) && this.model.equals(car.model);
     }
-    public String toString(){
-        return model+" "+year;
-    }
+
 }
