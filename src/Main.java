@@ -27,8 +27,8 @@ public class Main {
         cat.takeForAWalk();
         System.out.println(cat.getWeight());
 
-        Car car = new Car("Toyota", "Corolla", 2020, 7.5);
-        Human john = new Human("John", 10,0.0);
+        Car car = new Car("Toyota", "Corolla", 2020, 7.5, 2000);
+        Human john = new Human("John", 10,1000.0);
         john.setCar(car);
         System.out.println(john.getCar().getMake());
 
@@ -43,6 +43,8 @@ public class Main {
         jeremiasz.setSalary(1000.0);
         jeremiasz.setSalary(-3000.0);
         jeremiasz.getSalary();
+
+        jeremiasz.setCar(car);
     }
 
 }

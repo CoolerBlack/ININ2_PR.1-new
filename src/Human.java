@@ -29,8 +29,17 @@ class Human {
     }
 
     public void setCar(Car car) {
-        this.car = car;
+        if (this.salary >= car.getValue()) {
+            System.out.println("Udało się kupić samochód za Monety.");
+            this.car = car;
+        } else if (this.salary >= car.getValue() / 12) {
+            System.out.println("Masz na raty, tylko nie rozwal.");
+            this.car = car;
+        } else {
+            System.out.println("Jestes za biedny, na Obajtka to mi nie wyglądasz.");
+        }
     }
+
 
     public Double getSalary() {
         System.out.println("Wypłata wynosi: "+ this.salary);
@@ -47,4 +56,5 @@ class Human {
         System.out.println("Każdy wie ile zarabiasz nikogo nie oszukasz -1 byq");
         this.salary = salary;
     }
+
 }
