@@ -1,6 +1,8 @@
 package devices;
 
-public abstract class Device {
+import main.Human;
+
+public abstract class Device implements Selleable{
     public String producer;
 
     public double yearOfProduction;
@@ -10,6 +12,7 @@ public abstract class Device {
         this.producer = producer;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
+
     }
 
     public String getProducer(){
@@ -28,6 +31,8 @@ public abstract class Device {
     }
 
     public abstract void turnOn();
+
+
 
 
 }

@@ -1,6 +1,8 @@
 package devices;
 
-public class Car extends Device{
+import main.Human;
+
+public class Car extends Device {
 
     public double fuelConsumption;
     public double value;
@@ -47,4 +49,9 @@ public class Car extends Device{
         return this.producer.equals(car.producer) && this.model.equals(car.model);
     }
 
+
+
+    public void sell(Human Seller, Human Buyer, Double price) {
+
+    }
 }

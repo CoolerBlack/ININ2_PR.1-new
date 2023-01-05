@@ -1,4 +1,8 @@
-class Animal {
+package creatures;
+import main.Human;
+import devices.Selleable;
+
+public abstract class Animal implements Selleable, Feedable {
     private final String species;
     private boolean canFly;
     private Double weight;
@@ -9,6 +13,11 @@ class Animal {
         this.canFly = canFly;
         this.setWeightBySpecies();
         this.isAlive = true;
+    }
+
+    public Animal(String species) {
+
+        this.species = null;
     }
 
     public String getSpecies() {
@@ -23,6 +32,7 @@ class Animal {
         return this.weight;
     }
 
+
     public void feed() {
         if (this.isAlive) {
             this.weight += 1;
@@ -30,6 +40,10 @@ class Animal {
             System.out.println("Nie można karmić nieżyjącego zwierzęcia.");
         }
     }
+    public void feed(Integer foodWeight){
+
+    }
+
 
     public void takeForAWalk() {
         if (this.isAlive) {
@@ -54,4 +68,22 @@ class Animal {
     public String toString(){
         return species+" "+weight+" "+isAlive;
     }
-}
+
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (seller.getPet() == this) {
+            if (buyer.getCash() >= price) {
+                buyer.setCash(buyer.getCash() - price);
+                seller.setCash(seller.getCash() + price);
+                buyer.setPet(this);
+                seller.setPet(null);
+                System.out.println("Kupiłeś furrasa.");
+            } else {
+                System.out.println("Nie masz kaski.");
+            }
+        } else {
+            System.out.println("Nie mozesz sprzedac nie majac.");
+        }
+    }
+    }

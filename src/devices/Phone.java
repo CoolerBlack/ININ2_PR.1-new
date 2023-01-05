@@ -1,5 +1,7 @@
 package devices;
 
+import main.Human;
+
 public class Phone extends Device {
 
 
@@ -20,10 +22,14 @@ public class Phone extends Device {
         return this.yearOfProduction;
     }
 
-    @Override
+
     public void turnOn() {
         System.out.println("turning on phone...");
     }
 
 
+
+    public void sell(Human Seller, Human Buyer, Double price) {
+
+    }
 }

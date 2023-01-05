@@ -1,17 +1,23 @@
-import devices.Car;
+package main;
 
-class Human {
+import creatures.Animal;
+import devices.Car;
+import devices.Selleable;
+
+public class Human implements Selleable {
     private String name;
     private int age;
     private Animal pet;
     private Car car;
     private Double salary;
+    private  Double cash;
 
-    public Human(String name, int age, Double salary) {
+    public Human(String name, int age, Animal pet, Double salary, Double cash) {
         this.name = name;
         this.age = age;
         this.pet = pet;
         this.salary = salary;
+        this.cash = cash;
     }
 
     public String getName() {
@@ -29,6 +35,12 @@ class Human {
     public Car getCar() {
         return this.car;
     }
+
+    public Double getCash(){
+        return this.cash;
+    }
+
+
 
     public void setCar(Car car) {
         if (this.salary >= car.getValue()) {
@@ -62,5 +74,20 @@ class Human {
         public String toString(){
         return name+" "+age+" "+salary;
         }
+
+
+
+    public void sell(Human Seller, Human Buyer, Double price) {
+
+    }
+
+    public void setCash(double cash) {
+        this.cash = cash;
+    }
+
+    public void setPet(Animal pet) {
+        this.pet = pet;
+    }
+
 
 }
