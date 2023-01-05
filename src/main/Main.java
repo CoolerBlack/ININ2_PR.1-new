@@ -38,7 +38,12 @@ public class Main {
         cat.takeForAWalk();
         System.out.println(cat.getWeight());
 
-        Car car = new Car("Toyota", "Corolla", 2020, 7.5, 2000);
+        Car car = new Car("Toyota", "Corolla", 2020, 7.5, 2000) {
+            @Override
+            public void refuel() {
+
+            }
+        };
         Human john = new Human("John", 10,cat,1000.0,0.1);
         john.setCar(car);
         System.out.println(john.getCar().getProducer());
@@ -58,8 +63,18 @@ public class Main {
         jeremiasz.setCar(car);
 
 
-        Car car2 = new Car("Toyota", "Yaris", 2000, 6.0, 0.5);
-        Car car3 = new Car("Toyota", "Yaris", 2000, 6.0, 0.5);
+        Car car2 = new Car("Toyota", "Yaris", 2000, 6.0, 0.5) {
+            @Override
+            public void refuel() {
+
+            }
+        };
+        Car car3 = new Car("Toyota", "Yaris", 2000, 6.0, 0.5) {
+            @Override
+            public void refuel() {
+
+            }
+        };
         if (car2.equals(car3)) {
             System.out.println("Samochody są sobie równe.");
         } else {
@@ -79,10 +94,15 @@ public class Main {
 
 
 
-        Car c1=new Car("Toyota", "Yaris", 2000, 6.0, 0.5);
+        Car c1= new Car("Toyota", "Yaris", 2000, 6.0, 0.5) {
+            @Override
+            public void refuel() {
+
+            }
+        };
         System.out.println(c1);
 
-        Phone p1=new Phone("szajsung", "h11", 2022);
+        Phone p1=new Phone("szajsung", "h11", 2022, 10, 110);
         System.out.println(p1);
 
         p1.turnOn();
