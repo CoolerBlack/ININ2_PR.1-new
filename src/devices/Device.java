@@ -32,6 +32,19 @@ public abstract class Device implements Selleable{
 
     public abstract void turnOn();
 
+    @Override
+    public void sellable(Human seller, Human buyer, Double price) {
+        if (seller.car != this) {
+            System.out.println("Nie możesz sprzedawać nie swoich rzeczy!");
+        } else if (buyer.cash < price) {
+            System.out.println("Nie masz pieniaszka")
+            buyer.cash -= price;
+            seller.cash += price;
+            buyer.car = (Car) this;
+            seller.car = null;
+            System.out.println("Udaned");
+        }
+    }
 
 
 

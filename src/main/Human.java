@@ -5,12 +5,16 @@ import devices.Car;
 import devices.Selleable;
 
 public class Human implements Selleable {
+    private static final Object DEFAULT_HUMAN_SPECIE = "homo sapiens";
+    private static final int DEFAULT_GARAGE_SIZE = 3;
     private String name;
     private int age;
     private Animal pet;
-    private Car car;
+
+    public Car[] garage;
     private Double salary;
-    private  Double cash;
+    private Double cash;
+
 
     public Human(String name, int age, Animal pet, Double salary, Double cash) {
         this.name = name;
@@ -18,6 +22,7 @@ public class Human implements Selleable {
         this.pet = pet;
         this.salary = salary;
         this.cash = cash;
+        this.garage = new Car[DEFAULT_GARAGE_SIZE];
     }
 
     public String getName() {
@@ -32,23 +37,42 @@ public class Human implements Selleable {
         return this.pet;
     }
 
-    public Car getCar() {
-        return this.car;
+    Car[] getCar() {
+        return this.garage;
     }
 
-    public Double getCash(){
+    public Double getCash() {
         return this.cash;
     }
 
+    public Human() {
+        this.garage = new Car[DEFAULT_GARAGE_SIZE];
+    }
 
+    public Human(Integer garageSize) {
+        super();
+        this.garage = new Car[garageSize];
+    }
+
+    public void setCar(Car newCar, Integer parkingPlace) {
+        //sprawdzenie wolnego miejsca
+
+
+        this.garage[parkingPlace] = newCar;
+    }
+
+    public Car getCar(Integer parkingPlace) {
+
+        return this.garage[parkingPlace];
+    }
 
     public void setCar(Car car) {
         if (this.salary >= car.getValue()) {
             System.out.println("Udało się kupić samochód za Monety.");
-            this.car = car;
+            this.garage[DEFAULT_GARAGE_SIZE] = car;
         } else if (this.salary >= car.getValue() / 12) {
             System.out.println("Masz na raty, tylko nie rozwal.");
-            this.car = car;
+            this.garage[DEFAULT_GARAGE_SIZE] = car;
         } else {
             System.out.println("Jestes za biedny, na Obajtka to mi nie wyglądasz.");
         }
@@ -56,11 +80,11 @@ public class Human implements Selleable {
 
 
     public Double getSalary() {
-        System.out.println("Wypłata wynosi: "+ this.salary);
+        System.out.println("Wypłata wynosi: " + this.salary);
         return this.salary;
     }
 
-    public void setSalary(Double salary){
+    public void setSalary(Double salary) {
         if (salary < 0) {
             System.out.println("Nie mozna dać ujemnej kwoty byczq");
             return;
@@ -71,15 +95,15 @@ public class Human implements Selleable {
         this.salary = salary;
     }
 
-        public String toString(){
-        return name+" "+age+" "+salary;
-        }
+    public String toString() {
+        return name + " " + age + " " + salary;
+    }
 
 
-
-    public void sell(Human Seller, Human Buyer, Double price) {
+    public void sell(Human Seller, Human Buyer, Double price) throws Exception {
 
     }
+
 
     public void setCash(double cash) {
         this.cash = cash;
@@ -90,4 +114,39 @@ public class Human implements Selleable {
     }
 
 
+    public void setGarage(Car[] garage) {
+        this.garage = garage;
+    }
+
+    public boolean hasACar(Car car) {
+        for (Car value : garage) {
+            if (value == car) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasFreeSpace() {
+        for (Car car : garage) {
+            if (car == null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void addCar(Car car) {
+        for (int i = 0; i < garage.length; i++) {
+            if (garage[i] == null) {
+                garage[i] == car;
+                return;
+            }
+        }
+    }
+    buyer.addCar(this);
+    seller.removeCar(this);
+    buyer.cash -=price;
+    seller.cash +=price;
+    System.out.println("sukces");
 }

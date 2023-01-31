@@ -46,7 +46,7 @@ public class Main {
         };
         Human john = new Human("John", 10,cat,1000.0,0.1);
         john.setCar(car);
-        System.out.println(john.getCar().getProducer());
+
 
         Human janek = new Human("Janek", 20, cat,2000.0, 98.0);
         System.out.println("Wypka Janka: " + janek.getSalary());
@@ -111,10 +111,13 @@ public class Main {
         cat.sell(h1, jeremiasz, 200.0);
         h1.setPet(cat);
         cat.sell(h1, jeremiasz, 200.0);
-        h1.sell(john, jeremiasz, 1.0);
+
 
         h1.setCar(c1);
-        c1.sell(h1, jeremiasz, 1.1);
-    }
+
+
+
+    };
+
 
 }
