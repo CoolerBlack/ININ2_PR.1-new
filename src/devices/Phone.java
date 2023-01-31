@@ -36,6 +36,11 @@ public class Phone extends Device {
         System.out.println("turning on phone...");
     }
 
+    @Override
+    public int getPrice() {
+        return 0;
+    }
+
     public void installAnnApp(String appName){
 
     }

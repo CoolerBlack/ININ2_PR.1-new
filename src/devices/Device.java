@@ -15,6 +15,10 @@ public abstract class Device implements Selleable{
 
     }
 
+    public Device() {
+
+    }
+
     public String getProducer(){
         return this.producer;
     }
@@ -32,12 +36,12 @@ public abstract class Device implements Selleable{
 
     public abstract void turnOn();
 
-    @Override
+
     public void sellable(Human seller, Human buyer, Double price) {
         if (seller.car != this) {
             System.out.println("Nie możesz sprzedawać nie swoich rzeczy!");
         } else if (buyer.cash < price) {
-            System.out.println("Nie masz pieniaszka")
+            System.out.println("Nie masz pieniaszka");
             buyer.cash -= price;
             seller.cash += price;
             buyer.car = (Car) this;
@@ -47,5 +51,9 @@ public abstract class Device implements Selleable{
     }
 
 
+    public abstract int getPrice();
 
+    public double getvalue() {
+        return 0;
+    }
 }

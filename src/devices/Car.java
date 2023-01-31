@@ -1,19 +1,22 @@
 package devices;
 
-import main.Human;
+//import main.Human;
+import devices.LPGCar;
+import main.*;
+
 
 public abstract class Car extends Device {
 
     public double fuelConsumption;
     public double value;
-    private Object seller;
-    private Object buyer;
+
 
     public Car(String producer, String model, int yearOfProduction, double fuelConsumption, double value) {
         super(producer, model, yearOfProduction);
-        this.fuelConsumption = fuelConsumption;
-        this.value = value;
+    }
 
+    public Car() {
+        super();
     }
 
     public String getProducer() {
@@ -39,7 +42,7 @@ public abstract class Car extends Device {
     }
 
     public double getValue() {
-        return this.value;
+        return value;
     }
 
     @Override
@@ -56,7 +59,7 @@ public abstract class Car extends Device {
     public abstract void refuel();
 
 
-    public void sell(Human Seller, Human Buyer, Double price) throws Exception {
+    public void sell(Human seller, Human buyer, double price) throws Exception {
         if (!seller.hasACar(this)) {
             throw new Exception("nie ma auta");
         }
@@ -66,8 +69,13 @@ public abstract class Car extends Device {
         if (buyer.cash < price) {
             throw new Exception("nie ma cashu");
         }
-
-
+        buyer.addCar(this);
+        seller.removeCar(this);
+        buyer.cash -= price;
+        seller.cash += price;
     }
 
+    public int getyear() {
+        return (int) yearOfProduction;
+    }
 }
