@@ -4,12 +4,18 @@ package devices;
 import devices.LPGCar;
 import main.*;
 
+import java.util.LinkedList;
+import java.util.List;
+
 
 public abstract class Car extends Device {
 
     public double fuelConsumption;
     public double value;
 
+    public List<Human> owList = new LinkedList<>();
+
+    public List<CarSalles> history = new LinkedList<>();
 
     public Car(String producer, String model, int yearOfProduction, double fuelConsumption, double value) {
         super(producer, model, yearOfProduction);
